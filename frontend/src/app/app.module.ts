@@ -5,16 +5,32 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from "./components/login/login.component";
 import {HeaderComponent} from "./components/header/header.component";
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
+import {SignupComponent} from "./components/signup/signup.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { IssueListComponent } from './components/issue-list/issue-list.component';
+import { IssueCreateComponent } from './components/issue-create/issue-create.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    SignupComponent,
     HeaderComponent,
-    DefaultLayoutComponent
+    DefaultLayoutComponent,
+    PageNotFoundComponent,
+    IssueListComponent,
+    IssueCreateComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
