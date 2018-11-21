@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AlertModule } from 'ngx-bootstrap';
+import { NgxLoadingModule  } from 'ngx-loading';
 
 import { AppComponent } from './app.component';
 import {LoginComponent} from "./components/login/login.component";
@@ -13,6 +15,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { IssueListComponent } from './components/issue-list/issue-list.component';
 import { IssueCreateComponent } from './components/issue-create/issue-create.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {routes} from "./app.routing";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule.forRoot(routes),
+    AlertModule.forRoot(),
+    NgxLoadingModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]
