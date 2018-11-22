@@ -1,3 +1,19 @@
-<p>
-  issue list
-</p>
+<app-header></app-header>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6" *ngFor="let issue of issues">
+      <div class="card bg-light mb-3">
+        <div class="card-body">
+          <h6>Created at: {{issue.createdAt | date: 'short'}}  </h6>
+          <p>Status : <span class="badge badge-info">{{issue.status}} </span></p>
+          <h3>Title : {{issue.title}} </h3>
+          <p class="lead"><strong>Severetiy : </strong>{{issue.severity}} </p>
+          <p><strong>Description :</strong>{{issue.description}}</p>
+          <a   class="btn btn-warning mr-2 text-white">Close</a>
+          <a  class="btn btn-danger text-white">Remove</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

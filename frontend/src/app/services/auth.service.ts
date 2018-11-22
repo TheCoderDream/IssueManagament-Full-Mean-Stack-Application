@@ -31,11 +31,19 @@ export class AuthService {
         }
       })
   }
+  logout() {
+    localStorage.removeItem('issueToken');
+    this.router.navigate(['/login']);
+  }
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('issueToken');
 
     return !helper.isTokenExpired(token);
+  }
+
+  getToken() {
+    return JSON.parse(localStorage.getItem('issueToken'));
   }
 
 }

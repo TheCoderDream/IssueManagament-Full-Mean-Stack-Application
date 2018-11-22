@@ -9,13 +9,14 @@ import {HeaderComponent} from "./components/header/header.component";
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
 import {SignupComponent} from "./components/signup/signup.component";
 import {ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { IssueListComponent } from './components/issue-list/issue-list.component';
 import { IssueCreateComponent } from './components/issue-create/issue-create.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {routes} from "./app.routing";
+import {TokenInterceptorService} from "./services/token-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,13 @@ import {routes} from "./app.routing";
     AlertModule.forRoot(),
     NgxLoadingModule.forRoot({})
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

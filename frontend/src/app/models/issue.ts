@@ -7,5 +7,7 @@ export interface Issue {
   description: string;
   severity: Severities;
   status: Status;
+  createdAt: string;
+  updatedAt: string;
 
 }

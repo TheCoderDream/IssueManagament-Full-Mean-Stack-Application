@@ -1,0 +1,14 @@
+.nav-item, span {
+  color: #ffffff;
+}
+
+a {
+  color: lightgray;
+  margin-left: 3em;
+
+
+}
+
+a.active {
+   border-bottom: 3px solid gold;
+ }
